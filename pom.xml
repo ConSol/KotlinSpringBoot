@@ -8,7 +8,7 @@
 	<version>1.0</version>
 	<packaging>jar</packaging>
 
-	<name>hackaburg</name>
+	<name>kotlin-spring-boot-example</name>
 	<description>Demo project for backend development using Kotlin</description>
 
 	<parent>
