@@ -17,7 +17,7 @@ class JokeController {
     @Value("\${hackaburg.demo.backend}")
     lateinit var baseUrl: String
 
-    private val log = LoggerFactory.getLogger(JokeController::class.java)
+    private val log = LoggerFactory.getLogger(this.javaClass)
 
     @GetMapping("/joke")
     fun getRandomJoke(): String {
@@ -36,6 +36,6 @@ class JokeController {
     @ExceptionHandler(value = [ResourceAccessException::class])
     fun handleNetworkException(rae: ResourceAccessException): ResponseEntity<String> {
         log.error("Unable to access backend: ${rae.message}")
-        return ResponseEntity("Unable to access backend.", HttpStatus.BAD_GATEWAY)
+        return ResponseEntity("Unable to access backend: $baseUrl", HttpStatus.BAD_GATEWAY)
     }
 }
